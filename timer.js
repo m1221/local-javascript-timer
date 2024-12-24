@@ -2,11 +2,15 @@ var buzzSound = new Audio('./audio/buzz.wav');
 var tickSounds = [new Audio('./audio/tick-1.wav'), new Audio('./audio/tick-2.wav'), new Audio('./audio/tick-3.wav')];
 var clickSound = new Audio("./audio/click.wav");
 let countdown; // setInterval function for countdown clock
+const timerPanel = document.getElementById('panel');
+const button = document.getElementById('button');
 const clock = document.getElementById('clock');// div that controls the clock container 
-const timerInputLength = document.getElementById('timerInput');
+const timerInput = document.getElementById('timer-input');
 const hoursDisplay = document.getElementById('hours-number');
 const minutesDisplay = document.getElementById('minutes-number');
 const secondsDisplay = document.getElementById('seconds-number');
+const footer = document.getElementById('footer');
+const themeDropdown = document.getElementById('theme-dropdown');
 
 function playAudio(audioObject){
 	// helper function to prevent ugly error messages
@@ -18,7 +22,7 @@ function playAudio(audioObject){
 }
 
 function initTimer(){
-	let time = Number(timerInputLength.value);
+	let time = Number(timerInput.value);
 	playAudio(clickSound);
 	clearInterval(countdown)
 	startTimer(time);
@@ -59,3 +63,28 @@ function updateDisplayTimer(time){
 		minutesDisplay.textContent = displayMinutes;
 		secondsDisplay.textContent = displaySeconds;
 }
+
+// add themes options
+for ([id, theme] of themes){
+    let option = document.createElement("option");
+    option.value = id;
+    option.textContent = theme.displayName;
+    themeDropdown.appendChild(option);
+}
+
+function updateTheme(){
+    let newTheme = themes.get(themeDropdown.value);
+    timerPanel.style.background = newTheme.colors.get("timerPanelColor");
+    hoursDisplay.style.background = newTheme.colors.get("hoursPanelColor");
+    minutesDisplay.style.background = newTheme.colors.get("minutesPanelColor");
+    secondsDisplay.style.background = newTheme.colors.get("secondsPanelColor");
+    button.style.background = newTheme.colors.get("buttonColor");
+    button.style.color = newTheme.colors.get("buttonActiveColor");
+    footer.style.background = newTheme.colors.get("footerColor");
+
+    let backgroundImage = document.getElementById("background-image");
+    backgroundImage.src = newTheme.backgroundImage;
+    backgroundImage.style.visibility = (newTheme.backgroundImage == "none") ? "hidden" : "visible";
+}
+
+updateTheme();

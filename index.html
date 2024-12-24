@@ -10,6 +10,7 @@
 </head>
 	
 <body>
+    <img id="background-image">
 	<div id="panel">
 		<div id="clock">
 			<span id="hours">
@@ -26,10 +27,14 @@
 			</span>
 		</div>
 		<div id="tool-bar">
-			<input type="number" id="timerInput">
-			<button class="button" type="button" onclick="initTimer()">Start</button>
+			<input type="number" id="timer-input">
+			<button class="button" id="button" type="button" onclick="initTimer()">Start</button>
 		</div>
 	</div>
+    <div id="footer">
+        <select id="theme-dropdown" onchange="updateTheme()"></select>
+    </div>
+    <script src="themes.js"></script>
 	<script src="timer.js"></script>
 </body>
 </html>

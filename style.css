@@ -5,10 +5,16 @@ body {
 	height: 100vh;
 	width: 100vw;
 	position: absolute;
-	/*
-	background-image: url('background-images/halloween-background.jpg');
-	background-size: cover;
-	*/
+}
+
+#background-image {
+    display: block;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .button{
@@ -23,19 +29,9 @@ body {
 	border-style: none;
 	cursor: pointer;
 }
-button:hover{
-	background: #fff;
-	color: #0074D9;
-	font-weight: bold;
-}
-button:active{
-	background: #fff;
-	color: #0074D9;
-	font-weight: bold;
-}
+button:hover,
+button:active,
 button:focus{
-	background: #fff;
-	color: #0074D9;
 	font-weight: bold;
 }
 
@@ -44,6 +40,9 @@ button:focus{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: #282828c7;
+    border-radius: 25px;
 }
 
 #tool-bar{
@@ -51,6 +50,20 @@ button:focus{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+#footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #282828c7;
+}
+
+#theme-dropdown {
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 120px;
 }
 
 #clock{
@@ -93,10 +106,12 @@ button:focus{
 	clear: both;
 }
 
-#timerInput{
+#timer-input{
 	height: 5vh;
 	width: 5vw;
 	font-size: 26px;
+    margin-right: 10px;
+    border-radius: 10px;
 }
 
 span.turn{
@@ -107,5 +122,3 @@ span.turn{
 	0%{transform: rotateX(0deg)}
 	100%{transform: rotateX(360deg)}
 }
-
-
