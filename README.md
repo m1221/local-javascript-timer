@@ -2,7 +2,7 @@
 
 <img src="local-javascript-timer.jpg" width="700px" height="auto">
 
-Local Javascript Timer is a simple, browser-based timer app for classroom or office use. Because it uses the javascript SetInterval function, it is not suitable for any use-case that requires precise time-telling. 
+Local Javascript Timer is a simple, browser-based timer app for classroom or office use.
 
 Much of the CSS design and some of the html & javascript code was taken from https://github.com/kadjahoe/Javascript-Timer.
 
